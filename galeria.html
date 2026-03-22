@@ -1,0 +1,413 @@
+<!doctype html>
+
+<html class="light" lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Galería - Parcela La Serena</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Manrope:wght@200..800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "inverse-on-surface": "#f2f1ee",
+              "on-background": "#1a1c1a",
+              surface: "#faf9f6",
+              "surface-container-highest": "#e3e2e0",
+              "outline-variant": "#c5c8b8",
+              "inverse-primary": "#b6d088",
+              "inverse-surface": "#2f312f",
+              background: "#faf9f6",
+              "surface-bright": "#faf9f6",
+              "primary-container": "#556b2f",
+              "on-secondary-container": "#73603b",
+              "tertiary-container": "#65645b",
+              outline: "#75796b",
+              "on-surface": "#1a1c1a",
+              error: "#ba1a1a",
+              "surface-dim": "#dbdad7",
+              "on-primary-fixed-variant": "#394d14",
+              secondary: "#6e5c37",
+              "on-primary-fixed": "#131f00",
+              "on-secondary": "#ffffff",
+              "on-error-container": "#93000a",
+              "surface-variant": "#e3e2e0",
+              "surface-tint": "#50652a",
+              "on-tertiary-container": "#e4e1d6",
+              "on-tertiary": "#ffffff",
+              "primary-fixed-dim": "#b6d088",
+              primary: "#3e5219",
+              "secondary-fixed": "#f9dfb1",
+              "on-primary-container": "#d0eba1",
+              "surface-container-lowest": "#ffffff",
+              "surface-container-high": "#e9e8e5",
+              "on-secondary-fixed-variant": "#554422",
+              "secondary-fixed-dim": "#dcc497",
+              "primary-fixed": "#d2eca2",
+              "error-container": "#ffdad6",
+              "on-primary": "#ffffff",
+              tertiary: "#4d4c44",
+              "tertiary-fixed": "#e5e2d8",
+              "on-tertiary-fixed": "#1c1c15",
+              "surface-container": "#efeeeb",
+              "surface-container-low": "#f4f3f1",
+              "on-tertiary-fixed-variant": "#48473f",
+              "tertiary-fixed-dim": "#c9c7bc",
+              "secondary-container": "#f6ddae",
+              "on-surface-variant": "#45483c",
+              "on-secondary-fixed": "#261a00",
+              "on-error": "#ffffff",
+            },
+            fontFamily: {
+              headline: ["Newsreader", "serif"],
+              body: ["Manrope", "sans-serif"],
+              label: ["Manrope", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.125rem",
+              lg: "0.25rem",
+              xl: "0.5rem",
+              full: "0.75rem",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      body {
+        font-family: "Manrope", sans-serif;
+        background-color: #faf9f6;
+        color: #1a1c1a;
+      }
+      .serif-tight {
+        font-family: "Newsreader", serif;
+        letter-spacing: -0.02em;
+      }
+      .glass-overlay {
+        background: rgba(227, 226, 224, 0.6);
+        backdrop-filter: blur(20px);
+      }
+    </style>
+  </head>
+  <body class="bg-background text-on-background">
+    <!-- TopAppBar -->
+    <header
+      class="fixed top-0 w-full z-50 bg-[#faf9f6]/90 dark:bg-[#1a1c1a]/90 backdrop-blur-md"
+    >
+      <div
+        class="flex justify-between items-center px-8 py-6 max-w-full mx-auto"
+      >
+        <a
+          class="text-2xl font-serif italic text-[#3e5219] dark:text-[#faf9f6]"
+          href="#"
+          >Parcela La Serena</a
+        >
+        <nav class="hidden md:flex gap-10">
+          <a
+            class="text-[#45483c] dark:text-[#c5c8b8] hover:text-[#3e5219] transition-colors duration-300 ease-in-out"
+            href="#"
+            >Propiedad</a
+          >
+          <a
+            class="text-[#3e5219] dark:text-[#faf9f6] font-bold border-b-2 border-[#3e5219] pb-1 transition-colors duration-300 ease-in-out"
+            href="#"
+            >Galería</a
+          >
+          <a
+            class="text-[#45483c] dark:text-[#c5c8b8] hover:text-[#3e5219] transition-colors duration-300 ease-in-out"
+            href="#"
+            >Entorno</a
+          >
+          <a
+            class="text-[#45483c] dark:text-[#c5c8b8] hover:text-[#3e5219] transition-colors duration-300 ease-in-out"
+            href="#"
+            >Contacto</a
+          >
+        </nav>
+        <button
+          class="bg-primary text-on-primary px-6 py-2 rounded-lg font-label text-sm uppercase tracking-widest hover:bg-primary-container transition-colors duration-300 active:opacity-80"
+        >
+          Agendar Visita
+        </button>
+      </div>
+    </header>
+    <main class="pt-32 pb-20">
+      <!-- Hero Section -->
+      <section class="px-8 md:px-20 mb-24">
+        <div class="max-w-7xl mx-auto">
+          <h1
+            class="serif-tight text-6xl md:text-8xl text-primary mb-6 leading-none"
+          >
+            Inmersión <br /><span class="italic font-light">en el Paisaje</span>
+          </h1>
+          <p
+            class="font-body text-on-surface-variant max-w-xl text-lg leading-relaxed"
+          >
+            Un recorrido visual por la arquitectura contemporánea fusionada con
+            la nobleza de la piedra local y maderas nativas en el corazón de La
+            Serena.
+          </p>
+        </div>
+      </section>
+      <!-- Section: Exteriores (Bento Grid Style) -->
+      <section class="mb-32">
+        <div class="px-8 md:px-20 mb-12 flex justify-between items-end">
+          <div>
+            <span
+              class="font-label text-xs uppercase tracking-[0.3em] text-outline mb-2 block"
+              >Capítulo I</span
+            >
+            <h2 class="serif-tight text-4xl text-on-surface">Exterior</h2>
+          </div>
+          <p
+            class="font-body text-sm text-on-surface-variant hidden md:block italic"
+          >
+            Integración orgánica con el terreno
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 px-4 md:px-8">
+          <!-- Large Main Image -->
+          <div
+            class="md:col-span-8 h-[600px] bg-surface-container-low overflow-hidden relative group"
+          >
+            <img
+              class="w-full h-full object-cover grayscale-[20%] group-hover:scale-105 transition-transform duration-700"
+              data-alt="Modern house architecture in La Serena landscape"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDY5651c90aqJVQwFnnsXLQdx6UoBo3IWPcyLo8lOJSh_oBRMMCNtsOVcfwuEDQRmJ1oXeOA34r0CVGT6IsfwkcR2I71ySlTUSKernRkOj6GRScqMV-zXByvC6jnKrXOdNr-_nvCz7Ssi9T2qJvQJ9eIN_oB3SkCbxWlvbIzYGLwlb9GiwBa17Gvi2dgCQ9vQm0ALwRPB096AL-CGvfFi6ahfI3fzmQ2NWlJUqaNCI2h84JztICH_2zlSwXeRyDZ6K3tWfmTnT6-Lk"
+            />
+            <div class="absolute bottom-10 left-10 glass-overlay p-6 max-w-xs">
+              <span
+                class="font-label text-xs font-bold text-primary block mb-2 uppercase"
+                >Vista Norte</span
+              >
+              <p class="font-body text-sm text-on-surface">
+                La estructura se eleva sutilmente sobre el nivel del suelo para
+                preservar la flora nativa.
+              </p>
+            </div>
+          </div>
+          <!-- Vertical Detail -->
+          <div class="md:col-span-4 h-[600px] flex flex-col gap-6">
+            <div class="h-1/2 bg-surface-container overflow-hidden">
+              <img
+                class="w-full h-full object-cover grayscale-[10%]"
+                data-alt="Detail of pool reflecting coastal sky"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZZkDUFOopTcjgqNX7_gzXk79EtqQWqhZcfasvbUMUAj9NxuR_0E7s80dTat0fhSDu7NcnPLKSLkmESYvX72SbMmQl2xuZtv5Nu5o-xZwfxQ1uCm154epB9dJQkd3-u2s_3TlvPvPMQa3BrmmMR0LoDG1g6EqNlBOLTpqcQebUQja_Q25Bn0EGZ5s0PRKnvmbUwbOFOPqYPIHtdH_kM4ZKNWrSEFj1lRLNfqJSt0z5iE4hWTwsPZC4BvFJuYN9_XfZMKHK4fTprIw"
+              />
+            </div>
+            <div
+              class="h-1/2 bg-surface-container overflow-hidden p-12 flex flex-col justify-center border-l border-outline-variant/20"
+            >
+              <h3 class="serif-tight text-3xl mb-4 italic text-secondary">
+                Luz &amp; Sombra
+              </h3>
+              <p
+                class="font-body text-sm leading-relaxed text-on-surface-variant"
+              >
+                Los aleros extendidos protegen de la radiación directa mientras
+                crean un juego rítmico de sombras sobre los muros de piedra.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Section: Interiores (Editorial Asymmetric) -->
+      <section class="bg-surface-container-low py-32 mb-32">
+        <div class="max-w-7xl mx-auto px-8">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+            <div class="order-2 md:order-1 relative">
+              <div
+                class="aspect-[4/5] bg-surface-container-highest overflow-hidden"
+              >
+                <img
+                  class="w-full h-full object-cover"
+                  data-alt="Minimalist living room with floor to ceiling windows"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnxOgBzS2iTbaX-tK1DFVwp7EiXJj_rD7aRb6Z4-WydOnIDD17PzFfnC7ROpPnsjvyBxH_V5VUe2E2p4i5CDIjD99MmG-pZLX9NVOz5uQ6laSy4TEg7nySuFdS8UC5LQBKHtIJrQNLz6Rdo01L0E0ZNREf_4dBvmKL7yYrXChlbV-MfyB2SkNsL00ZvPiShe8KadqsyzptbpF1zSCWvcz1NyE2h151ST3itn1drqH0VLUJeTy1az6lol63GNpHc9gXyjBugIQAi4k"
+                />
+              </div>
+              <!-- Floating Detail Image -->
+              <div
+                class="absolute -bottom-12 -right-12 w-64 h-80 hidden md:block bg-surface p-2 shadow-2xl"
+              >
+                <img
+                  class="w-full h-full object-cover"
+                  data-alt="Kitchen detail with natural wood finishes"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6eLWyGMg5Ii6blUqxN7tGi9kOw1VnGm07LU29B375lSo9w6hT_VpQ0mBrKiusAbnlvBT41_zZ640y3VojtiqTK0lWonz3bL01jygJg92ycZeE6CDH4Ia-L2ck3Sy59U-VnU4PC4PsbGMEC1zVcIF1wdE4V2V7CzAnrjkM5tkL0S_CiDFaa7gZhSRW8jOsPr5bmYRsN7XcrlQ188TVWi2050H-1TC6jUgAfSDw-Gx3Qu05EfhWgQiCxcC7dKyhUu69lDN2LRU4gXo"
+                />
+              </div>
+            </div>
+            <div class="order-1 md:order-2 md:pl-10">
+              <span
+                class="font-label text-xs uppercase tracking-[0.3em] text-outline mb-4 block"
+                >Capítulo II</span
+              >
+              <h2 class="serif-tight text-5xl text-on-surface mb-8">
+                Interiores
+              </h2>
+              <div class="space-y-6 font-body text-on-surface-variant text-lg">
+                <p>
+                  Espacios diáfanos que eliminan la barrera entre el adentro y
+                  el afuera. El uso de ventanales de piso a cielo permite que el
+                  paisaje de La Serena sea el cuadro principal de cada
+                  habitación.
+                </p>
+                <p
+                  class="text-sm font-label uppercase tracking-widest text-primary pt-4 border-t border-outline-variant/30 inline-block"
+                >
+                  Materiales: Roble, Hormigón Visto, Lino
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Section: Detalles (Materiality Grid) -->
+      <section class="px-8 md:px-20 mb-32">
+        <div class="text-center mb-20">
+          <span
+            class="font-label text-xs uppercase tracking-[0.3em] text-outline mb-2 block"
+            >Capítulo III</span
+          >
+          <h2 class="serif-tight text-4xl text-on-surface">
+            Detalles &amp; Materialidad
+          </h2>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+          <div class="aspect-square bg-surface-container overflow-hidden group">
+            <img
+              class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+              data-alt="Close up of rough stone texture"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnM0xQXhm2meoaIe8oauONAQvdMD3YPx3D4bxx28LhdMnGziPps60l-C6-AdtxNSGEAxmjrA9J1hxxwzEmr76gDVXqt3EfK1o0neYEj2mdWeVw_w-Coa6cXRNLlI4zEKhuoFQXf2hRdAP7JqJKCZrEjKXsOZct04WiRsQTtYlHmE64xGqVkTipx4gvj6WO5Z-03giV_QwinSz3f-8hHJ704MPjD07gDCw8CPA8_sYmK7GoyrVP2jncjT_FJLjla81noliUoYOwElU"
+            />
+            <div
+              class="p-4 bg-surface-container-low text-[10px] font-label uppercase tracking-widest"
+            >
+              Piedra de Cantera Local
+            </div>
+          </div>
+          <div
+            class="aspect-square bg-surface-container overflow-hidden group pt-12 md:pt-24"
+          >
+            <img
+              class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+              data-alt="Detail of wooden joint architecture"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOVtAsPvp5bFMb4CpWZJ5Br0pmf7eoZReSRG4nYlVUZmj6LuyY6EVANOcKJV6JNsxaduYkL7k21JcLHUTqLBoO3DNJReYUMRzgTues5iMuPdKXBt-TsPFryuUD33-gM4QjvQxrncrNVyCDOl-9spbjkmf9BkP2LxZgV8I2SyVSdUhsfw28Jk-bU3qEjKZi-yycjn2hPbqLgWwsu8CE42FgVujdGDKGXpSNZZXO-uPHY7pYOyLK0gFAU4WbYy6rR4owb5xfK9f9ClA"
+            />
+            <div
+              class="p-4 bg-surface-container-low text-[10px] font-label uppercase tracking-widest"
+            >
+              Carpintería en Roble
+            </div>
+          </div>
+          <div class="aspect-square bg-surface-container overflow-hidden group">
+            <img
+              class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+              data-alt="Brushed concrete floor texture"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaWp8HBOpnyDcSmYKRCWfLttIEOsy_VT4Uh4jyBh2Ek-v_pVQin6tNjvEs7KlLoZHDzLcEkd7Qe9Y1wCg5TbsL-Ijo0V80N4-t2_kBPooHMyczIMgTvxXNaO6YTfvV6IHZDX2jusprNDP10ok2ymaSQbNuDq7i20yXVi7HfrW-3ORxv3vPg4UdCiG6J20isLVy1yHfvLJfAKAPF05W9mfNtySvkDuw31ZL3kJVm-gz_9v074L_c9sMBEEaAgmVUmBqRXH7byoq4v0"
+            />
+            <div
+              class="p-4 bg-surface-container-low text-[10px] font-label uppercase tracking-widest"
+            >
+              Hormigón Pulido
+            </div>
+          </div>
+          <div
+            class="aspect-square bg-surface-container overflow-hidden group pt-12 md:pt-24"
+          >
+            <img
+              class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+              data-alt="Natural linen fabric texture"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDi9T59J38uGcyCthvrdRxjpyb-Y646-8HQXOze6X0KbwSO9UhTM7vrnR_bQiSeBrfOzAscqfYPS9TWd1KPcxXXh1ui_KAfSDu1k1VudN-h1H6l4WgmKRXlXvqkYJAoMjkKR2gcLTxfmdBKQrhaUhulNMZ-VmovFEaSObr96pFwbd1VPzLp5pdfQJwU6-rUHN1vW5Mg02hL328MIkQHpLfIQV3e-PfAX2d3d1xvsP_jt8kIl5qlSHtaEuEJ0w_oC1hcr56ecKjbAXg"
+            />
+            <div
+              class="p-4 bg-surface-container-low text-[10px] font-label uppercase tracking-widest"
+            >
+              Textiles de Lino Crudo
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Full Bleed Immersive Section -->
+      <section
+        class="w-full h-[819px] relative overflow-hidden flex items-center justify-center"
+      >
+        <img
+          class="absolute inset-0 w-full h-full object-cover"
+          data-alt="Full bleed view of the house at sunset"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtjUluFFDqu4QQkD4VxpCytcJIVNSw9AKLvUkDwRTsU3KO1m9u__7YL1gu8mlv0JE4qItWXoRE666WkH9W1WqR6Oxg_bub38GZycnGzr1K6ch-Zsty2W8o9u_ClWAXogDS43b10LSdP3Jr8boHSzeVzytGvQ3pCBcQJZAJsKZW4o4GKm-EuwmU20-O1UeYFj4U24mCay2Lq4nSLLDP6cjGqOakKhrAXAu7s6uQ7KbSHShNiaBgu-qRlAc0usr7oQMK1eeTjlaer98"
+        />
+        <div
+          class="relative z-10 p-12 md:p-20 glass-overlay max-w-2xl text-center mx-4"
+        >
+          <h2 class="serif-tight text-4xl md:text-5xl text-primary mb-6">
+            ¿Listo para vivir la experiencia?
+          </h2>
+          <p class="font-body text-on-surface-variant mb-8">
+            Coordina una visita privada para conocer cada rincón de esta obra
+            arquitectónica.
+          </p>
+          <button
+            class="bg-primary text-on-primary px-10 py-4 rounded-lg font-label text-sm uppercase tracking-widest hover:bg-primary-container transition-colors shadow-xl"
+          >
+            Agendar ahora
+          </button>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer
+      class="bg-[#efeeeb] dark:bg-[#1a1c1a] w-full border-t border-[#c5c8b8]/20"
+    >
+      <div
+        class="flex flex-col md:flex-row justify-between items-center px-12 py-10 w-full"
+      >
+        <div class="mb-6 md:mb-0">
+          <p class="text-lg font-serif text-[#3e5219]">Parcela La Serena</p>
+          <p
+            class="font-sans text-[10px] tracking-wide uppercase text-[#45483c] mt-1"
+          >
+            © 2024 Inmobiliaria La Serena. Todos los derechos reservados.
+          </p>
+        </div>
+        <nav class="flex gap-8">
+          <a
+            class="font-sans text-sm tracking-wide uppercase text-[#45483c] hover:text-[#3e5219] dark:hover:text-[#faf9f6] transition-colors"
+            href="#"
+            >WhatsApp</a
+          >
+          <a
+            class="font-sans text-sm tracking-wide uppercase text-[#45483c] hover:text-[#3e5219] dark:hover:text-[#faf9f6] transition-colors"
+            href="#"
+            >Portal Inmobiliario</a
+          >
+          <a
+            class="font-sans text-sm tracking-wide uppercase text-[#45483c] hover:text-[#3e5219] dark:hover:text-[#faf9f6] transition-colors"
+            href="#"
+            >Mapa de Ubicación</a
+          >
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>
