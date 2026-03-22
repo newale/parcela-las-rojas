@@ -1,11 +1,481 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <h1>Hello World</h1>
-</body>
+<!doctype html>
+
+<html class="light" lang="es-CL">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Manrope:wght@200..800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary-container": "#65645b",
+              "on-tertiary": "#ffffff",
+              "outline-variant": "#c5c8b8",
+              "surface-container": "#efeeeb",
+              secondary: "#6e5c37",
+              "tertiary-fixed": "#e5e2d8",
+              tertiary: "#4d4c44",
+              "on-primary-fixed": "#131f00",
+              "on-secondary-fixed": "#261a00",
+              "surface-container-high": "#e9e8e5",
+              "surface-bright": "#faf9f6",
+              "primary-container": "#556b2f",
+              "primary-fixed": "#d2eca2",
+              "surface-tint": "#50652a",
+              "on-secondary-container": "#73603b",
+              "on-secondary": "#ffffff",
+              surface: "#faf9f6",
+              "secondary-fixed-dim": "#dcc497",
+              "on-primary-fixed-variant": "#394d14",
+              "inverse-primary": "#b6d088",
+              "on-tertiary-fixed-variant": "#48473f",
+              "on-tertiary-fixed": "#1c1c15",
+              "on-error-container": "#93000a",
+              "on-surface-variant": "#45483c",
+              "inverse-on-surface": "#f2f1ee",
+              "error-container": "#ffdad6",
+              "on-background": "#1a1c1a",
+              "tertiary-fixed-dim": "#c9c7bc",
+              "secondary-fixed": "#f9dfb1",
+              "surface-variant": "#e3e2e0",
+              "surface-container-low": "#f4f3f1",
+              "surface-container-lowest": "#ffffff",
+              "on-secondary-fixed-variant": "#554422",
+              "on-error": "#ffffff",
+              "primary-fixed-dim": "#b6d088",
+              "on-surface": "#1a1c1a",
+              "surface-dim": "#dbdad7",
+              "secondary-container": "#f6ddae",
+              background: "#faf9f6",
+              "on-primary": "#ffffff",
+              "on-tertiary-container": "#e4e1d6",
+              "surface-container-highest": "#e3e2e0",
+              primary: "#3e5219",
+              "inverse-surface": "#2f312f",
+              error: "#ba1a1a",
+              outline: "#75796b",
+              "on-primary-container": "#d0eba1",
+            },
+            fontFamily: {
+              headline: ["Newsreader", "serif"],
+              body: ["Manrope", "sans-serif"],
+              label: ["Manrope", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.125rem",
+              lg: "0.25rem",
+              xl: "0.5rem",
+              full: "0.75rem",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 300,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      .serif-tight {
+        font-family: "Newsreader", serif;
+        letter-spacing: -0.02em;
+      }
+      .glass-card {
+        background: rgba(227, 226, 224, 0.6);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+      }
+    </style>
+  </head>
+  <body
+    class="bg-surface text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed"
+  >
+    <!-- TopAppBar -->
+    <header
+      class="fixed top-0 w-full z-50 bg-[#faf9f6]/90 dark:bg-[#1a1c1a]/90 backdrop-blur-md"
+    >
+      <nav
+        class="flex justify-between items-center px-8 py-6 max-w-full mx-auto"
+      >
+        <div
+          class="text-2xl font-serif italic text-[#3e5219] dark:text-[#faf9f6]"
+        >
+          Parcela La Serena
+        </div>
+        <div class="hidden md:flex items-center gap-10">
+          <a
+            class="text-[#3e5219] dark:text-[#faf9f6] font-bold border-b-2 border-[#3e5219] pb-1 transition-colors duration-300 ease-in-out"
+            href="#"
+            >Propiedad</a
+          >
+          <a
+            class="text-[#45483c] dark:text-[#c5c8b8] hover:text-[#3e5219] transition-colors duration-300 ease-in-out"
+            href="#"
+            >Galería</a
+          >
+          <a
+            class="text-[#45483c] dark:text-[#c5c8b8] hover:text-[#3e5219] transition-colors duration-300 ease-in-out"
+            href="#"
+            >Entorno</a
+          >
+          <a
+            class="text-[#45483c] dark:text-[#c5c8b8] hover:text-[#3e5219] transition-colors duration-300 ease-in-out"
+            href="#"
+            >Contacto</a
+          >
+        </div>
+        <button
+          class="bg-primary text-on-primary px-6 py-2.5 rounded-lg font-label text-sm uppercase tracking-wider hover:bg-primary-container transition-all duration-300 active:opacity-80"
+        >
+          Agendar Visita
+        </button>
+      </nav>
+    </header>
+    <main class="pt-0">
+      <!-- Hero Section -->
+      <section
+        class="relative h-screen min-h-[700px] flex items-end overflow-hidden"
+      >
+        <div class="absolute inset-0 z-0">
+          <img
+            alt="Parcela La Serena"
+            class="w-full h-full object-cover"
+            data-alt="Luxury modern house facade with stone and glass"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYcs3Uosej5ospUkXL7hcvmd_STQVomYjNv---ezdpUDv9D0_Njzo_34c58pR5BRWUGOW4mhU5UDgm62ATy80yZ25b-hugME-uzPbPOg5yoNqcITao1DeRi_uDd7o2IHN3LlTSAKaECP7WeGyX_tSlJZOTw5_RL7YM2bdiBBTHv9jeIn5x2WxPRO8BFg7Z2M3JLMBUI8IH2ecvn5u1nkeQLLCl3CVBOpt0IJghfg8POx5BPQ1QskYHT2Xp2Ero6tOBaon6W1tNlkY"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"
+          ></div>
+        </div>
+        <div
+          class="relative z-10 w-full max-w-7xl mx-auto px-8 pb-20 grid grid-cols-1 md:grid-cols-12 gap-8"
+        >
+          <div class="md:col-span-8">
+            <h1
+              class="serif-tight text-7xl md:text-9xl text-white leading-tight mb-6"
+            >
+              El refugio donde la <span class="italic">tierra</span> toca el
+              mar.
+            </h1>
+            <p
+              class="text-xl md:text-2xl text-white/90 max-w-2xl font-light leading-relaxed"
+            >
+              Una experiencia arquitectónica única en el corazón de La Serena.
+              Espacios diseñados para habitar el silencio y la luz natural.
+            </p>
+          </div>
+          <div
+            class="md:col-span-4 flex flex-col justify-end items-start md:items-end"
+          >
+            <div class="glass-card p-8 rounded-lg w-full text-on-surface">
+              <div
+                class="flex items-center gap-2 mb-2 text-primary font-bold uppercase tracking-widest text-xs"
+              >
+                <span class="material-symbols-outlined text-sm"
+                  >location_on</span
+                >
+                Sector San Joaquín, La Serena
+              </div>
+              <div class="text-3xl font-headline mb-4">UF 14.500</div>
+              <div class="h-[1px] bg-outline-variant/30 w-full mb-4"></div>
+              <p class="text-sm text-on-surface-variant leading-relaxed">
+                Parcela de 5.000 m² con derechos de agua y vista panorámica a la
+                bahía.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Stats Section (Asymmetric) -->
+      <section class="py-24 bg-surface-container-low">
+        <div
+          class="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-4 gap-12"
+        >
+          <div class="space-y-2">
+            <span class="text-primary font-bold text-4xl font-headline italic"
+              >5.000</span
+            >
+            <p
+              class="text-on-surface-variant font-label uppercase text-xs tracking-widest"
+            >
+              m² Terreno Total
+            </p>
+          </div>
+          <div class="space-y-2">
+            <span class="text-primary font-bold text-4xl font-headline italic"
+              >340</span
+            >
+            <p
+              class="text-on-surface-variant font-label uppercase text-xs tracking-widest"
+            >
+              m² Construidos
+            </p>
+          </div>
+          <div class="space-y-2">
+            <span class="text-primary font-bold text-4xl font-headline italic"
+              >4</span
+            >
+            <p
+              class="text-on-surface-variant font-label uppercase text-xs tracking-widest"
+            >
+              Dormitorios en Suite
+            </p>
+          </div>
+          <div class="space-y-2">
+            <span class="text-primary font-bold text-4xl font-headline italic"
+              >5</span
+            >
+            <p
+              class="text-on-surface-variant font-label uppercase text-xs tracking-widest"
+            >
+              Baños Modernos
+            </p>
+          </div>
+        </div>
+      </section>
+      <!-- Gallery Section (Bento Style) -->
+      <section class="py-32 px-8 bg-surface">
+        <div class="max-w-7xl mx-auto">
+          <div class="mb-20 text-center max-w-3xl mx-auto">
+            <h2 class="font-headline text-5xl mb-6">
+              Cada rincón, una historia.
+            </h2>
+            <p class="text-on-surface-variant text-lg">
+              Explora la armonía entre materiales nobles como la piedra caliza y
+              maderas nativas en un entorno natural privilegiado.
+            </p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-4 h-[900px]">
+            <div
+              class="md:col-span-8 md:row-span-2 relative group overflow-hidden rounded-lg"
+            >
+              <img
+                alt="Interior"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                data-alt="Main living room with large windows"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3Q1nIQJXnxtUXlRLTxh5HmroFWz4ZlR2GJBkM44inK3OqxGbk1RuYomuCp9DZpIZiAWqpujP145mTrKwKOetVQL1S8Lb7pCd4rUV6_y5vUrwh0dYhvCs0IyVK59n0bqxrkbM5y9XRX3N65mprIrgQ7Av6ZH5My2D0yfUmCQBqkjSWxxonV8_aVR_tBYXzKlZWkUEB_ynj63_MqXqVUcBGQqfaxBOZ0SI8Cb0l3Wxipk0z7aadBgRz1x_ucRjCoqbfajbGnCG83i4"
+              />
+              <div
+                class="absolute bottom-6 left-6 text-white z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              >
+                <span
+                  class="bg-black/40 backdrop-blur-md px-4 py-2 rounded-full text-xs font-label"
+                  >Living principal con vista al jardín</span
+                >
+              </div>
+            </div>
+            <div
+              class="md:col-span-4 relative group overflow-hidden rounded-lg"
+            >
+              <img
+                alt="Kitchen"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                data-alt="Modern minimalist kitchen with island"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCriDyzVex4S56WzY9FBL_Ou30x6K5_ueYgEcQHQRKC7_c_PiE4xGTJwg6XnaFBUDghs5Yk3XEX3lvjAkbwAxrH8uvxyCMEDlTsD5F28TOLj9gcnQXIOlZ6Moqt8c-YOCNCNtIlb9U70S80TsFIil_dE8eoVcfcCbtXeH5u0UOHe7gSN96doVnRC4ilAkuyxmQen9RPKH5QIVBJ41JOwZIjL7R60-41tGZNyiwSNb8o5ojmwb0WZeeA413Qh1hwmoLuoI1D_eDbTrI"
+              />
+              <div
+                class="absolute bottom-6 left-6 text-white z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              >
+                <span
+                  class="bg-black/40 backdrop-blur-md px-4 py-2 rounded-full text-xs font-label"
+                  >Cocina de autor integrada</span
+                >
+              </div>
+            </div>
+            <div
+              class="md:col-span-4 relative group overflow-hidden rounded-lg"
+            >
+              <img
+                alt="Bathroom"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                data-alt="Elegant master bathroom"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBu6ej-fPYW-fjCQmDVZLA-aejLQWXOhW_yGfSYPmZRZcPexovhpmtJpWJJDcvWqAqb3GEGMNErGnEosFYTa93pkUcfK1EbTAbY9FVpmv1I1Af1Otqg-J0wlS1WGoquZylJ6FQRA1SQGGOPjexcx1Ba7mpKkXleVfU84t5ZXYHJliI1Rt4yJThAiQcBvXfkXhsGh-BDwcJs8i4cPnd87JNFoap07BkbljiScQ40ebI87BaLCHQ018sPSfIAN2jRRYwRFDWbpZ0CEeA"
+              />
+              <div
+                class="absolute bottom-6 left-6 text-white z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              >
+                <span
+                  class="bg-black/40 backdrop-blur-md px-4 py-2 rounded-full text-xs font-label"
+                  >Baño principal con spa</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Features (Asymmetric Layout) -->
+      <section class="py-32 bg-surface-container">
+        <div
+          class="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-2 gap-20 items-center"
+        >
+          <div class="order-2 md:order-1">
+            <img
+              alt="Exterior Noche"
+              class="w-full aspect-[4/5] object-cover rounded-lg"
+              data-alt="Outdoor pool and terrace area at dusk"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbfbuiBrTbOth1kyCNqDSfcWJ-2kxSWhIoMSDYciu5nSbHA2UulZltiPktk_K3wOm3OczHvzB5yqh_Qxw52QwAnjJhYGJ1WPIEPZxl0kSj81LwVlR50fg1HmJCNH-j6dG_K0O2gx6lZvND0PSgbE4eoMJ21ytbd8kgmiGW0D6uWUi-lkD6Egn1RTs1rdU2g5l9b1y9BXIn3q_ZmgoOzhIGHGuxZtPjpF6bYitTL9_licQNAjSlAF6Lm2w5z0-3jH43lyhbm6skyFk"
+            />
+          </div>
+          <div class="order-1 md:order-2 space-y-12">
+            <h2 class="font-headline text-5xl leading-tight">
+              Privacidad total a solo minutos de la ciudad.
+            </h2>
+            <div class="space-y-8">
+              <div class="flex gap-6">
+                <span
+                  class="material-symbols-outlined text-primary text-3xl shrink-0"
+                  >landscape</span
+                >
+                <div>
+                  <h4 class="font-headline text-xl mb-2">
+                    Entorno Natural Protegido
+                  </h4>
+                  <p class="text-on-surface-variant">
+                    Jardines xerófitos diseñados por expertos, minimizando el
+                    consumo de agua y resaltando la flora local.
+                  </p>
+                </div>
+              </div>
+              <div class="flex gap-6">
+                <span
+                  class="material-symbols-outlined text-primary text-3xl shrink-0"
+                  >solar_power</span
+                >
+                <div>
+                  <h4 class="font-headline text-xl mb-2">
+                    Eficiencia Energética
+                  </h4>
+                  <p class="text-on-surface-variant">
+                    Paneles solares integrados y sistema de aislación térmica
+                    avanzada para confort en todas las estaciones.
+                  </p>
+                </div>
+              </div>
+              <div class="flex gap-6">
+                <span
+                  class="material-symbols-outlined text-primary text-3xl shrink-0"
+                  >security</span
+                >
+                <div>
+                  <h4 class="font-headline text-xl mb-2">Seguridad 24/7</h4>
+                  <p class="text-on-surface-variant">
+                    Acceso controlado y sistema de cámaras de seguridad
+                    perimetral de última generación.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <button
+              class="bg-primary text-on-primary px-10 py-4 rounded-lg font-label uppercase tracking-widest hover:bg-primary-container transition-all"
+            >
+              Descargar Ficha Técnica
+            </button>
+          </div>
+        </div>
+      </section>
+      <!-- Trust / Partners Section -->
+      <section class="py-24 bg-surface border-t border-outline-variant/10">
+        <div class="max-w-7xl mx-auto px-8">
+          <p
+            class="text-center text-on-surface-variant font-label text-xs tracking-[0.2em] uppercase mb-12"
+          >
+            Publicado en Portales Premium
+          </p>
+          <div
+            class="flex flex-wrap justify-center items-center gap-16 grayscale opacity-40 hover:opacity-100 transition-opacity duration-500"
+          >
+            <div
+              class="flex items-center gap-2 font-headline text-2xl font-bold"
+            >
+              Portal Inmobiliario
+            </div>
+            <div
+              class="flex items-center gap-2 font-headline text-2xl font-bold"
+            >
+              Goplaceit
+            </div>
+            <div
+              class="flex items-center gap-2 font-headline text-2xl font-bold"
+            >
+              Zillow Chile
+            </div>
+            <div
+              class="flex items-center gap-2 font-headline text-2xl font-bold"
+            >
+              Mercado Libre
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer
+      class="w-full border-t border-[#c5c8b8]/20 bg-[#efeeeb] dark:bg-[#1a1c1a]"
+    >
+      <div
+        class="flex flex-col md:flex-row justify-between items-center px-12 py-10 w-full"
+      >
+        <div class="text-lg font-serif text-[#3e5219] mb-6 md:mb-0">
+          Parcela La Serena
+        </div>
+        <div class="flex gap-8 mb-6 md:mb-0">
+          <a
+            class="text-[#45483c] font-sans text-sm tracking-wide uppercase hover:text-[#3e5219] dark:hover:text-[#faf9f6] transition-colors"
+            href="#"
+            >WhatsApp</a
+          >
+          <a
+            class="text-[#45483c] font-sans text-sm tracking-wide uppercase hover:text-[#3e5219] dark:hover:text-[#faf9f6] transition-colors"
+            href="#"
+            >Portal Inmobiliario</a
+          >
+          <a
+            class="text-[#45483c] font-sans text-sm tracking-wide uppercase hover:text-[#3e5219] dark:hover:text-[#faf9f6] transition-colors"
+            href="#"
+            >Mapa de Ubicación</a
+          >
+        </div>
+        <p
+          class="text-[#45483c] font-sans text-xs uppercase tracking-widest opacity-60"
+        >
+          © 2024 Inmobiliaria La Serena. Todos los derechos reservados.
+        </p>
+      </div>
+    </footer>
+    <!-- Floating Contact Button -->
+    <a
+      class="fixed bottom-8 right-8 z-[60] bg-[#25D366] text-white p-4 rounded-full shadow-2xl flex items-center gap-3 group hover:scale-105 transition-all active:scale-95"
+      href="https://wa.me/56900000000"
+    >
+      <span
+        class="material-symbols-outlined"
+        style="font-variation-settings: &quot;FILL&quot; 1"
+        >chat</span
+      >
+      <span
+        class="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-[150px] transition-all duration-500 font-label font-bold text-sm uppercase"
+        >Consultar WhatsApp</span
+      >
+    </a>
+  </body>
 </html>
