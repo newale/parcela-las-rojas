@@ -1,0 +1,155 @@
+/* Nocturne — design-system tokens and component classes, imported from Claude Design (Nortespacios landing page). */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --color-bg: #161826;
+  --color-surface: #232532;
+  --color-text: #e9e9ed;
+  --color-accent: #9184d9;
+  --color-accent-2: #a7a1db;
+  --color-divider: color-mix(in srgb, #e9e9ed 16%, transparent);
+
+  --color-neutral-100: #f3f5fe;
+  --color-neutral-200: #e4e7f5;
+  --color-neutral-300: #cfd3e5;
+  --color-neutral-400: #b2b6ca;
+  --color-neutral-500: #9397ab;
+  --color-neutral-600: #75798c;
+  --color-neutral-700: #595d6c;
+  --color-neutral-800: #3f424d;
+  --color-neutral-900: #292b31;
+
+  --color-accent-100: #f5f4ff;
+  --color-accent-200: #e7e5fe;
+  --color-accent-300: #d2cefd;
+  --color-accent-400: #b5abfc;
+  --color-accent-500: #968ae0;
+  --color-accent-600: #796cbf;
+  --color-accent-700: #5d5294;
+  --color-accent-800: #423a6a;
+  --color-accent-900: #2b2741;
+
+  --color-accent-2-100: #f5f4ff;
+  --color-accent-2-200: #e7e5fe;
+  --color-accent-2-300: #d2cefd;
+  --color-accent-2-400: #b5afe8;
+  --color-accent-2-500: #9690c9;
+  --color-accent-2-600: #7972a9;
+  --color-accent-2-700: #5c5783;
+  --color-accent-2-800: #423e5d;
+  --color-accent-2-900: #2b293a;
+
+  --color-section: #262a60;
+  --color-section-glow: #353b80;
+  --color-section-ghost: #4c5397;
+
+  --font-heading: "Inter", system-ui, sans-serif;
+  --font-heading-weight: 500;
+  --font-body: "Inter", system-ui, sans-serif;
+
+  --space-1: 2.8px;
+  --space-2: 5.6px;
+  --space-3: 8.4px;
+  --space-4: 11.2px;
+  --space-6: 16.8px;
+  --space-8: 22.4px;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
+
+  --shadow-sm: 0 0 0 1px #3f424d;
+  --shadow-md: 0 0 0 1px #595d6c, 0 6px 18px rgba(0,0,0,0.55);
+  --shadow-lg: 0 0 0 1px #9397ab, 0 16px 40px rgba(0,0,0,0.65);
+}
+
+.nocturne-page { background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); }
+.nocturne-page h1, .nocturne-page h2, .nocturne-page h3, .nocturne-page h4 { font-family: var(--font-heading); font-weight: var(--font-heading-weight); }
+
+.nocturne-page *, .nocturne-page *::before, .nocturne-page *::after { box-sizing: border-box; }
+.nocturne-page { font-size: 15px; line-height: 1.55; font-weight: 400; }
+.nocturne-page h1, .nocturne-page h2, .nocturne-page h3, .nocturne-page h4, .nocturne-page h5, .nocturne-page h6 {
+  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  line-height: 1.12; letter-spacing: -0.015em; margin: 0 0 var(--space-2);
+}
+.nocturne-page h1 { font-size: 42px; }
+.nocturne-page h2 { font-size: 32px; }
+.nocturne-page h3 { font-size: 25px; }
+.nocturne-page h4 { font-size: 20px; }
+.nocturne-page h5 { font-size: 16px; }
+.nocturne-page h6 { font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; }
+.nocturne-page p { margin: 0 0 var(--space-3); }
+.nocturne-page a { color: var(--color-accent); text-underline-offset: 3px; }
+.nocturne-page img { display: block; max-width: 100%; }
+.nocturne-page figure { margin: 0; }
+.nocturne-page figcaption {
+  font-size: 11px; margin-top: var(--space-1);
+  color: color-mix(in srgb, var(--color-text) 55%, transparent);
+}
+.nocturne-page .text-muted { color: color-mix(in srgb, var(--color-text) 55%, transparent); }
+.nocturne-page :focus { outline: none; }
+.nocturne-page :focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+.nocturne-page ::selection { background: color-mix(in srgb, var(--color-accent) 30%, transparent); }
+
+.nocturne-page .hr {
+  height: 1px; border: 0; margin: var(--space-4) 0;
+  background: linear-gradient(to right,
+    transparent, var(--color-divider) 48px,
+    var(--color-divider) calc(100% - 48px), transparent);
+}
+
+.nocturne-page .btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  cursor: pointer; text-decoration: none;
+  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: 14px; line-height: 1.2; color: var(--color-text);
+  background: transparent; border: 1px solid transparent;
+  padding: var(--space-2) calc(var(--space-3) * 1.2);
+  border-radius: var(--radius-md);
+}
+.nocturne-page .btn svg { display: block; }
+.nocturne-page .btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.nocturne-page .btn-primary { color: var(--color-accent); border-color: var(--color-accent); }
+.nocturne-page .btn-primary:hover { background: color-mix(in srgb, var(--color-accent) 12%, transparent); }
+.nocturne-page .btn-primary:active { background: color-mix(in srgb, var(--color-accent) 22%, transparent); }
+.nocturne-page .btn-secondary { border-color: var(--color-divider); }
+.nocturne-page .btn-secondary:hover { background: color-mix(in srgb, var(--color-text) 7%, transparent); }
+.nocturne-page .btn-secondary:active { background: color-mix(in srgb, var(--color-text) 14%, transparent); }
+.nocturne-page .btn-ghost { color: var(--color-accent); padding-inline: var(--space-1); }
+.nocturne-page .btn-ghost:hover { background: color-mix(in srgb, var(--color-accent) 10%, transparent); }
+.nocturne-page .btn-ghost:active { background: color-mix(in srgb, var(--color-accent) 18%, transparent); }
+.nocturne-page .btn-icon { width: 36px; height: 36px; padding: 0; }
+.nocturne-page .btn-block { width: 100%; margin-top: var(--space-2); }
+
+.nocturne-page .field > label {
+  display: block; font-size: 12px; margin-bottom: 5px;
+  color: color-mix(in srgb, var(--color-text) 70%, transparent);
+}
+.nocturne-page .input {
+  width: 100%; min-height: 36px; padding: 6px 10px; font: inherit;
+  font-size: 14px; color: var(--color-text); caret-color: var(--color-accent);
+  background: var(--color-surface);
+  border: 1px solid var(--color-divider); border-radius: var(--radius-md);
+}
+.nocturne-page .input:hover { border-color: color-mix(in srgb, var(--color-text) 45%, transparent); }
+.nocturne-page .input:focus-visible { border-color: var(--color-accent); outline-offset: 0; }
+.nocturne-page textarea.input { min-height: 90px; resize: vertical; }
+
+.nocturne-page .tag {
+  display: inline-flex; align-items: center; font-size: 11px;
+  letter-spacing: 0.02em; padding: 3px 10px;
+  border-radius: calc(var(--radius-md) * 0.75);
+}
+.nocturne-page .tag-outline { border: 1px solid var(--color-accent); color: var(--color-accent); }
+
+.nocturne-page .nav {
+  display: flex; align-items: center; gap: var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  border-bottom: none;
+}
+.nocturne-page .nav-brand {
+  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: 18px; margin-right: auto;
+}
+.nocturne-page .nav a { color: inherit; text-decoration: none; font-size: 14px; }
+.nocturne-page .nav a:hover, .nocturne-page .nav a[aria-current='page'] { color: var(--color-accent); }
