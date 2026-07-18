@@ -1,6 +1,7 @@
 module.exports = function(eleventyConfig) {
   // Copy assets to the output directory
   eleventyConfig.addPassthroughCopy("assets");
+  eleventyConfig.addPassthroughCopy("robots.txt");
 
   // Return configuration object
   return {

@@ -1,15 +1,41 @@
 ---
 layout: false
 title: Nortespacios · Casa y parcela en venta en Las Rojas, La Serena
+seoDescription: Parcela de 6.298 m² con casa de 81 m² en venta en Las Rojas, La Serena. UF 4.100.
+seoUrl: https://nortespacios.cl/
+seoImage: https://nortespacios.cl/assets/nortespacios/living.jpeg
 ---
 <!doctype html>
-<html lang="es">
+<html lang="es-CL">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{ title }}</title>
-<meta name="description" content="Parcela de 6.298 m² con casa de 81 m² en venta en Las Rojas, La Serena. UF 4.100.">
+<meta name="description" content="{{ seoDescription }}">
+{% include "seo-head.njk" %}
 <link rel="stylesheet" href="/assets/css/nocturne.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "RealEstateListing",
+  "name": "Casa y parcela en venta en Las Rojas, La Serena",
+  "description": "Parcela de 6.298 m² con una casa de 81 m² en Las Rojas, La Serena. 3 dormitorios, 1 baño, 5 estacionamientos.",
+  "url": "https://nortespacios.cl/",
+  "image": "https://nortespacios.cl/assets/nortespacios/living.jpeg",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Las Rojas, La Serena",
+    "addressRegion": "Región de Coquimbo",
+    "addressCountry": "CL"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "4100",
+    "priceCurrency": "CLF",
+    "availability": "https://schema.org/InStock"
+  }
+}
+</script>
 <style>
   html { scroll-behavior: smooth; }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
@@ -25,6 +51,7 @@ title: Nortespacios · Casa y parcela en venta en Las Rojas, La Serena
     <a href="#galeria">Galería</a>
     <a href="#ubicacion">Ubicación</a>
     <a href="#contacto">Contacto</a>
+    <a href="/quienes-somos/">Nosotros</a>
     <a href="#" data-wa-link target="_blank" rel="noopener" class="btn btn-primary">WhatsApp</a>
   </nav>
 
@@ -123,7 +150,10 @@ title: Nortespacios · Casa y parcela en venta en Las Rojas, La Serena
     </section>
 
     <section id="galeria" style="padding: 40px 0 56px;">
-      <span style="display: block; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-accent); margin: 0 0 20px;">Galería</span>
+      <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin: 0 0 20px;">
+        <span style="display: block; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-accent);">Galería</span>
+        <a href="/galeria/" class="btn btn-ghost">Ver todas las fotos</a>
+      </div>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
         <figure style="margin: 0;">
           <img src="/assets/nortespacios/living.jpeg" alt="Living con sofá y estufa a leña" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: var(--radius-md); box-shadow: var(--shadow-sm);">
