@@ -1,7 +1,7 @@
 ---
 layout: false
 title: Galería · Nortespacios
-seoDescription: Recorrido fotográfico completo de la casa y parcela en venta en Las Rojas, La Serena — living, cocina, dormitorios, exteriores y entorno.
+seoDescription: Recorrido fotográfico completo de la casa y parcela en venta en Las Rojas, Valle de Elqui — living, cocina, dormitorios, exteriores y entorno.
 seoUrl: https://nortespacios.cl/galeria/
 seoImage: https://nortespacios.cl/assets/nortespacios/living.jpeg
 ---
@@ -18,6 +18,67 @@ seoImage: https://nortespacios.cl/assets/nortespacios/living.jpeg
   html { scroll-behavior: smooth; }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   body { margin: 0; }
+
+  .cat-nav {
+    position: sticky; top: 57px; z-index: 9;
+    display: flex; gap: 8px; overflow-x: auto; -webkit-overflow-scrolling: touch;
+    padding: 14px clamp(20px, 5vw, 72px);
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-divider);
+    scrollbar-width: none;
+  }
+  .cat-nav::-webkit-scrollbar { display: none; }
+  .cat-pill {
+    flex: 0 0 auto; font-family: var(--font-heading); font-size: 13.5px;
+    color: color-mix(in srgb, var(--color-text) 78%, transparent);
+    text-decoration: none; padding: 7px 16px; border-radius: 999px;
+    border: 1px solid var(--color-divider); white-space: nowrap;
+    transition: color 0.15s, border-color 0.15s, background 0.15s;
+  }
+  .cat-pill:hover { color: var(--color-text); border-color: color-mix(in srgb, var(--color-text) 40%, transparent); }
+  .cat-pill.is-active { color: var(--color-accent); border-color: var(--color-accent); background: color-mix(in srgb, var(--color-accent) 12%, transparent); }
+
+  .room-group { padding: 44px 0 8px; scroll-margin-top: 116px; }
+  .room-group h3 { font-size: 21px; margin: 0 0 4px; }
+  .room-group .room-count { font-size: 13px; color: color-mix(in srgb, var(--color-text) 55%, transparent); margin: 0 0 18px; }
+
+  .photo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+  .photo-grid button {
+    all: unset; cursor: zoom-in; display: block; border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm); overflow: hidden;
+  }
+  .photo-grid img {
+    width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block;
+    transition: transform 0.35s ease;
+  }
+  .photo-grid button:hover img { transform: scale(1.045); }
+  .photo-grid button:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+
+  .section-divider { height: 1px; margin: 20px 0 0; background: linear-gradient(to right, transparent, var(--color-divider) 48px, var(--color-divider) calc(100% - 48px), transparent); }
+
+  .lightbox {
+    position: fixed; inset: 0; z-index: 50; display: none;
+    background: rgba(10, 10, 16, 0.94); backdrop-filter: blur(6px);
+    align-items: center; justify-content: center;
+  }
+  .lightbox.is-open { display: flex; }
+  .lightbox figure { margin: 0; max-width: min(92vw, 1100px); max-height: 88vh; text-align: center; }
+  .lightbox img { max-width: 100%; max-height: 80vh; border-radius: var(--radius-md); box-shadow: var(--shadow-lg); margin: 0 auto; }
+  .lightbox figcaption { margin-top: 14px; font-size: 13.5px; color: color-mix(in srgb, var(--color-text) 78%, transparent); }
+  .lightbox-close, .lightbox-prev, .lightbox-next {
+    all: unset; position: fixed; cursor: pointer; color: var(--color-text);
+    display: flex; align-items: center; justify-content: center;
+    width: 44px; height: 44px; border-radius: 999px;
+    background: color-mix(in srgb, var(--color-surface) 88%, transparent);
+    border: 1px solid var(--color-divider);
+  }
+  .lightbox-close:hover, .lightbox-prev:hover, .lightbox-next:hover { border-color: var(--color-accent); color: var(--color-accent); }
+  .lightbox-close { top: 20px; right: 20px; }
+  .lightbox-prev { left: 20px; top: 50%; transform: translateY(-50%); }
+  .lightbox-next { right: 20px; top: 50%; transform: translateY(-50%); }
+  @media (max-width: 640px) {
+    .lightbox-prev { left: 8px; } .lightbox-next { right: 8px; } .lightbox-close { top: 10px; right: 10px; }
+  }
 </style>
 </head>
 <body class="nocturne-page">
@@ -25,87 +86,137 @@ seoImage: https://nortespacios.cl/assets/nortespacios/living.jpeg
 <div style="background: radial-gradient(1200px 720px at 82% -160px, color-mix(in srgb, var(--color-accent-900) 75%, transparent), transparent 60%), radial-gradient(1100px 800px at -10% 100%, color-mix(in srgb, black 30%, transparent), transparent 55%), var(--color-bg); color: var(--color-text); font-family: var(--font-body); min-height: 100vh;">
 
   <nav class="nav" style="position: sticky; top: 0; z-index: 10; padding-inline: clamp(20px, 5vw, 72px); backdrop-filter: blur(10px); background: color-mix(in srgb, var(--color-bg) 78%, transparent);">
-    <span class="nav-brand">Nortespacios</span>
+    <a href="/" class="nav-brand" style="text-decoration: underline;">Nortespacios</a>
     <a href="/#propiedad">Propiedad</a>
     <a href="/quienes-somos/">Nosotros</a>
     <a href="/#contacto">Contacto</a>
     <a href="/" class="btn btn-primary">Ver la parcela</a>
   </nav>
 
+  <nav class="cat-nav" aria-label="Categorías de la galería">
+    <a href="#interior" class="cat-pill is-active" data-cat-pill>Interior</a>
+    <a href="#dormitorios" class="cat-pill" data-cat-pill>Dormitorios</a>
+    <a href="#living" class="cat-pill" data-cat-pill>Living y estar</a>
+    <a href="#cocina" class="cat-pill" data-cat-pill>Cocina y comedor</a>
+    <a href="#banos" class="cat-pill" data-cat-pill>Terraza y baños</a>
+    <a href="#exterior" class="cat-pill" data-cat-pill>Exterior</a>
+    <a href="#terreno" class="cat-pill" data-cat-pill>Terreno y huerto</a>
+    <a href="#accesos" class="cat-pill" data-cat-pill>Accesos</a>
+    <a href="#entorno" class="cat-pill" data-cat-pill>Río y entorno</a>
+  </nav>
+
   <div style="max-width: 1200px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 72px);">
 
-    <section style="padding: clamp(40px, 6vw, 88px) 0 40px; max-width: 62ch;">
+    <section style="padding: clamp(32px, 5vw, 64px) 0 8px; max-width: 62ch;">
       <span style="display: block; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-accent); margin: 0 0 14px;">Galería</span>
-      <h1 style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: clamp(32px, 4.5vw, 48px); line-height: 1.12; letter-spacing: -0.015em; margin: 0 0 16px;">Casa y parcela en Las Rojas, La Serena.</h1>
-      <p style="font-size: 16px; line-height: 1.65; margin: 0; color: color-mix(in srgb, var(--color-text) 82%, transparent);">Un recorrido completo por la casa, sus espacios interiores y el entorno de la parcela.</p>
+      <h1 style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: clamp(32px, 4.5vw, 48px); line-height: 1.12; letter-spacing: -0.015em; margin: 0 0 16px;">Casa y parcela en Las Rojas, Valle de Elqui.</h1>
+      <p style="font-size: 16px; line-height: 1.65; margin: 0; color: color-mix(in srgb, var(--color-text) 82%, transparent);">Un recorrido completo por la casa, sus espacios interiores y el entorno de la parcela, a orillas del río Elqui.</p>
     </section>
 
-    <section style="padding: 0 0 64px;">
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;">
-        <figure style="margin: 0;">
-          <img src="/assets/img/fotografia-1.jpeg" alt="Fachada de la casa en la parcela de Las Rojas" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: var(--radius-md); box-shadow: var(--shadow-sm);" loading="eager">
-        </figure>
-        <figure style="margin: 0;">
-          <img src="/assets/img/fotografia-2.jpeg" alt="Vista exterior de la casa y el terreno" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: var(--radius-md); box-shadow: var(--shadow-sm);" loading="lazy">
-        </figure>
-        <figure style="margin: 0;">
-          <img src="/assets/img/fotografia-3.jpeg" alt="Living de la casa en Las Rojas" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: var(--radius-md); box-shadow: var(--shadow-sm);" loading="lazy">
-        </figure>
-        <figure style="margin: 0;">
-          <img src="/assets/img/fotografia-4.jpeg" alt="Cocina de la casa en Las Rojas" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: var(--radius-md); box-shadow: var(--shadow-sm);" loading="lazy">
-        </figure>
-        <figure style="margin: 0;">
-          <img src="/assets/img/fotografia-5.jpeg" alt="Comedor de la casa en Las Rojas" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: var(--radius-md); box-shadow: var(--shadow-sm);" loading="lazy">
-        </figure>
-        <figure style="margin: 0;">
-          <img src="/assets/img/fotografia-6.jpeg" alt="Dormitorio principal de la casa en Las Rojas" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: var(--radius-md); box-shadow: var(--shadow-sm);" loading="lazy">
-        </figure>
-        <figure style="margin: 0;">
-          <img src="/assets/img/fotografia-7.jpeg" alt="Dormitorio secundario de la casa en Las Rojas" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: var(--radius-md); box-shadow: var(--shadow-sm);" loading="lazy">
-        </figure>
-        <figure style="margin: 0;">
-          <img src="/assets/img/fotografia-8.jpeg" alt="Baño de la casa en Las Rojas" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: var(--radius-md); box-shadow: var(--shadow-sm);" loading="lazy">
-        </figure>
-        <figure style="margin: 0;">
-          <img src="/assets/img/fotografia-9.jpeg" alt="Estufa a leña en el living de la casa" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: var(--radius-md); box-shadow: var(--shadow-sm);" loading="lazy">
-        </figure>
-        <figure style="margin: 0;">
-          <img src="/assets/img/fotografia-10.jpeg" alt="Detalle de terminaciones en madera y ladrillo" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: var(--radius-md); box-shadow: var(--shadow-sm);" loading="lazy">
-        </figure>
-        <figure style="margin: 0;">
-          <img src="/assets/img/fotografia-11.jpeg" alt="Estacionamientos de la parcela en Las Rojas" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: var(--radius-md); box-shadow: var(--shadow-sm);" loading="lazy">
-        </figure>
-        <figure style="margin: 0;">
-          <img src="/assets/img/fotografia-12.jpeg" alt="Acceso vehicular a la parcela" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: var(--radius-md); box-shadow: var(--shadow-sm);" loading="lazy">
-        </figure>
-        <figure style="margin: 0;">
-          <img src="/assets/img/fotografia-13.jpeg" alt="Terreno y vegetación de la parcela de 6.298 m²" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: var(--radius-md); box-shadow: var(--shadow-sm);" loading="lazy">
-        </figure>
-        <figure style="margin: 0;">
-          <img src="/assets/img/fotografia-14.jpeg" alt="Vista panorámica del terreno rural de Las Rojas" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: var(--radius-md); box-shadow: var(--shadow-sm);" loading="lazy">
-        </figure>
-        <figure style="margin: 0;">
-          <img src="/assets/img/fotografia-15.jpeg" alt="Entorno natural que rodea la casa" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: var(--radius-md); box-shadow: var(--shadow-sm);" loading="lazy">
-        </figure>
-        <figure style="margin: 0;">
-          <img src="/assets/img/fotografia-16.jpeg" alt="Espacio exterior para huerta o ampliaciones" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: var(--radius-md); box-shadow: var(--shadow-sm);" loading="lazy">
-        </figure>
-        <figure style="margin: 0;">
-          <img src="/assets/img/fotografia-17.jpeg" alt="Atardecer visto desde la parcela en Las Rojas" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: var(--radius-md); box-shadow: var(--shadow-sm);" loading="lazy">
-        </figure>
-        <figure style="margin: 0;">
-          <img src="/assets/img/fotografia-18.jpeg" alt="Detalle de la construcción en madera de la casa" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: var(--radius-md); box-shadow: var(--shadow-sm);" loading="lazy">
-        </figure>
-        <figure style="margin: 0;">
-          <img src="/assets/img/fotografia-19.jpeg" alt="Vista lateral de la casa y el terreno" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: var(--radius-md); box-shadow: var(--shadow-sm);" loading="lazy">
-        </figure>
-        <figure style="margin: 0;">
-          <img src="/assets/img/fotografia-20.jpeg" alt="Vista general de la parcela en Las Rojas, La Serena" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: var(--radius-md); box-shadow: var(--shadow-sm);" loading="lazy">
-        </figure>
+    <h2 id="interior" style="scroll-margin-top: 116px; padding-top: 24px; font-size: 26px;">Interior de la casa</h2>
+
+    <div id="dormitorios" class="room-group">
+      <h3>Dormitorios</h3>
+      <p class="room-count">2 fotos</p>
+      <div class="photo-grid" data-group="dormitorios">
+        <button type="button" data-src="/assets/img/fotografia-1.jpeg" data-caption="Dormitorio con muro de ladrillo a la vista y velador de madera"><img src="/assets/img/fotografia-1.jpeg" alt="Dormitorio con muro de ladrillo a la vista y velador de madera" loading="eager"></button>
+        <button type="button" data-src="/assets/img/fotografia-2.jpeg" data-caption="Dormitorio con closet de madera y espejo"><img src="/assets/img/fotografia-2.jpeg" alt="Dormitorio con closet de madera y espejo" loading="lazy"></button>
       </div>
-    </section>
+    </div>
 
-    <div style="height:1px; margin: 8px 0 0; background: linear-gradient(to right, transparent, var(--color-divider) 48px, var(--color-divider) calc(100% - 48px), transparent);"></div>
+    <div id="living" class="room-group">
+      <h3>Living y estar</h3>
+      <p class="room-count">6 fotos</p>
+      <div class="photo-grid" data-group="living">
+        <button type="button" data-src="/assets/img/fotografia-3.jpeg" data-caption="Living con estufa a leña y sillón de cuero"><img src="/assets/img/fotografia-3.jpeg" alt="Living con estufa a leña y sillón de cuero" loading="lazy"></button>
+        <button type="button" data-src="/assets/img/fotografia-6.jpeg" data-caption="Living comedor principal, de cielo abovedado en madera"><img src="/assets/img/fotografia-6.jpeg" alt="Living comedor principal, de cielo abovedado en madera" loading="lazy"></button>
+        <button type="button" data-src="/assets/img/fotografia-9.jpeg" data-caption="Rincón de estar con mueble bar y radio antigua"><img src="/assets/img/fotografia-9.jpeg" alt="Rincón de estar con mueble bar y radio antigua" loading="lazy"></button>
+        <button type="button" data-src="/assets/img/fotografia-16.jpeg" data-caption="Rincón de estar, otro ángulo"><img src="/assets/img/fotografia-16.jpeg" alt="Rincón de estar, otro ángulo" loading="lazy"></button>
+        <button type="button" data-src="/assets/img/fotografia-13.jpeg" data-caption="Sala de estar con sillones de mimbre"><img src="/assets/img/fotografia-13.jpeg" alt="Sala de estar con sillones de mimbre" loading="lazy"></button>
+        <button type="button" data-src="/assets/img/fotografia-20.jpeg" data-caption="Sala de estar con sillones de mimbre, otro ángulo"><img src="/assets/img/fotografia-20.jpeg" alt="Sala de estar con sillones de mimbre, otro ángulo" loading="lazy"></button>
+      </div>
+    </div>
+
+    <div id="cocina" class="room-group">
+      <h3>Cocina y comedor</h3>
+      <p class="room-count">6 fotos</p>
+      <div class="photo-grid" data-group="cocina">
+        <button type="button" data-src="/assets/img/fotografia-7.jpeg" data-caption="Cocina equipada con mesón de granito y muros de ladrillo"><img src="/assets/img/fotografia-7.jpeg" alt="Cocina equipada con mesón de granito y muros de ladrillo" loading="lazy"></button>
+        <button type="button" data-src="/assets/img/fotografia-14.jpeg" data-caption="Cocina, otro ángulo"><img src="/assets/img/fotografia-14.jpeg" alt="Cocina, otro ángulo" loading="lazy"></button>
+        <button type="button" data-src="/assets/img/fotografia-8.jpeg" data-caption="Comedor diario junto a la cocina"><img src="/assets/img/fotografia-8.jpeg" alt="Comedor diario junto a la cocina" loading="lazy"></button>
+        <button type="button" data-src="/assets/img/fotografia-15.jpeg" data-caption="Comedor diario, otro ángulo"><img src="/assets/img/fotografia-15.jpeg" alt="Comedor diario, otro ángulo" loading="lazy"></button>
+        <button type="button" data-src="/assets/img/fotografia-4.jpeg" data-caption="Desayunador junto a la ventana"><img src="/assets/img/fotografia-4.jpeg" alt="Desayunador junto a la ventana" loading="lazy"></button>
+        <button type="button" data-src="/assets/img/fotografia-5.jpeg" data-caption="Dormitorio secundario con mueble de TV"><img src="/assets/img/fotografia-5.jpeg" alt="Dormitorio secundario con mueble de TV" loading="lazy"></button>
+      </div>
+    </div>
+
+    <div id="banos" class="room-group">
+      <h3>Terraza y baños</h3>
+      <p class="room-count">6 fotos</p>
+      <div class="photo-grid" data-group="banos">
+        <button type="button" data-src="/assets/img/fotografia-10.jpeg" data-caption="Terraza techada con sillón de mimbre"><img src="/assets/img/fotografia-10.jpeg" alt="Terraza techada con sillón de mimbre" loading="lazy"></button>
+        <button type="button" data-src="/assets/img/fotografia-17.jpeg" data-caption="Terraza techada, otro ángulo"><img src="/assets/img/fotografia-17.jpeg" alt="Terraza techada, otro ángulo" loading="lazy"></button>
+        <button type="button" data-src="/assets/img/fotografia-11.jpeg" data-caption="Baño con ducha"><img src="/assets/img/fotografia-11.jpeg" alt="Baño con ducha" loading="lazy"></button>
+        <button type="button" data-src="/assets/img/fotografia-18.jpeg" data-caption="Baño con ducha, otro ángulo"><img src="/assets/img/fotografia-18.jpeg" alt="Baño con ducha, otro ángulo" loading="lazy"></button>
+        <button type="button" data-src="/assets/img/fotografia-12.jpeg" data-caption="Baño con lavamanos"><img src="/assets/img/fotografia-12.jpeg" alt="Baño con lavamanos" loading="lazy"></button>
+        <button type="button" data-src="/assets/img/fotografia-19.jpeg" data-caption="Baño con lavamanos, otro ángulo"><img src="/assets/img/fotografia-19.jpeg" alt="Baño con lavamanos, otro ángulo" loading="lazy"></button>
+      </div>
+    </div>
+
+    <div class="section-divider" style="margin-top: 48px;"></div>
+
+    <h2 id="exterior" style="scroll-margin-top: 116px; padding-top: 40px; font-size: 26px;">Exterior y entorno</h2>
+
+    <div class="room-group">
+      <h3>La casa por fuera</h3>
+      <p class="room-count">3 fotos</p>
+      <div class="photo-grid" data-group="casa-exterior">
+        <button type="button" data-src="/assets/img/fotografia-25.jpeg" data-caption="Fachada lateral de la casa"><img src="/assets/img/fotografia-25.jpeg" alt="Fachada lateral de la casa" loading="lazy"></button>
+        <button type="button" data-src="/assets/img/fotografia-26.jpeg" data-caption="Fachada trasera de la casa"><img src="/assets/img/fotografia-26.jpeg" alt="Fachada trasera de la casa" loading="lazy"></button>
+        <button type="button" data-src="/assets/img/fotografia-29.jpeg" data-caption="Fachada frontal de la casa junto al parrón"><img src="/assets/img/fotografia-29.jpeg" alt="Fachada frontal de la casa junto al parrón" loading="lazy"></button>
+      </div>
+    </div>
+
+    <div id="terreno" class="room-group">
+      <h3>Terreno y huerto</h3>
+      <p class="room-count">5 fotos</p>
+      <div class="photo-grid" data-group="terreno">
+        <button type="button" data-src="/assets/img/fotografia-22.jpeg" data-caption="Terreno con árboles frutales"><img src="/assets/img/fotografia-22.jpeg" alt="Terreno con árboles frutales" loading="lazy"></button>
+        <button type="button" data-src="/assets/img/fotografia-28.jpeg" data-caption="Sendero entre árboles del huerto"><img src="/assets/img/fotografia-28.jpeg" alt="Sendero entre árboles del huerto" loading="lazy"></button>
+        <button type="button" data-src="/assets/img/fotografia-30.jpeg" data-caption="Parrón con parras y mesa de trabajo"><img src="/assets/img/fotografia-30.jpeg" alt="Parrón con parras y mesa de trabajo" loading="lazy"></button>
+        <button type="button" data-src="/assets/img/fotografia-31.jpeg" data-caption="Huerto de paltos con vista a la montaña"><img src="/assets/img/fotografia-31.jpeg" alt="Huerto de paltos con vista a la montaña" loading="lazy"></button>
+        <button type="button" data-src="/assets/img/fotografia-35.jpeg" data-caption="Terreno abierto de la parcela"><img src="/assets/img/fotografia-35.jpeg" alt="Terreno abierto de la parcela" loading="lazy"></button>
+      </div>
+    </div>
+
+    <div id="accesos" class="room-group">
+      <h3>Accesos</h3>
+      <p class="room-count">7 fotos</p>
+      <div class="photo-grid" data-group="accesos">
+        <button type="button" data-src="/assets/img/fotografia-21.jpeg" data-caption="Camino de acceso junto al puente"><img src="/assets/img/fotografia-21.jpeg" alt="Camino de acceso junto al puente" loading="lazy"></button>
+        <button type="button" data-src="/assets/img/fotografia-23.jpeg" data-caption="Camino de tierra hacia el portón de acceso"><img src="/assets/img/fotografia-23.jpeg" alt="Camino de tierra hacia el portón de acceso" loading="lazy"></button>
+        <button type="button" data-src="/assets/img/fotografia-24.jpeg" data-caption="Portón de acceso a la parcela"><img src="/assets/img/fotografia-24.jpeg" alt="Portón de acceso a la parcela" loading="lazy"></button>
+        <button type="button" data-src="/assets/img/fotografia-27.jpeg" data-caption="Camino interior con vista a la montaña"><img src="/assets/img/fotografia-27.jpeg" alt="Camino interior con vista a la montaña" loading="lazy"></button>
+        <button type="button" data-src="/assets/img/fotografia-32.jpeg" data-caption="Camino de tierra entre paltos"><img src="/assets/img/fotografia-32.jpeg" alt="Camino de tierra entre paltos" loading="lazy"></button>
+        <button type="button" data-src="/assets/img/fotografia-33.jpeg" data-caption="Camino pavimentado de acceso al sector"><img src="/assets/img/fotografia-33.jpeg" alt="Camino pavimentado de acceso al sector" loading="lazy"></button>
+        <button type="button" data-src="/assets/img/fotografia-34.jpeg" data-caption="Camino pavimentado, otro tramo"><img src="/assets/img/fotografia-34.jpeg" alt="Camino pavimentado, otro tramo" loading="lazy"></button>
+      </div>
+    </div>
+
+    <div id="entorno" class="room-group">
+      <h3>Río y entorno</h3>
+      <p class="room-count">6 fotos</p>
+      <div class="photo-grid" data-group="entorno">
+        <button type="button" data-src="/assets/img/fotografia-36.jpeg" data-caption="Río junto a la parcela"><img src="/assets/img/fotografia-36.jpeg" alt="Río junto a la parcela" loading="lazy"></button>
+        <button type="button" data-src="/assets/img/fotografia-37.jpeg" data-caption="Ribera del río"><img src="/assets/img/fotografia-37.jpeg" alt="Ribera del río" loading="lazy"></button>
+        <button type="button" data-src="/assets/img/fotografia-38.jpeg" data-caption="Estero junto al río"><img src="/assets/img/fotografia-38.jpeg" alt="Estero junto al río" loading="lazy"></button>
+        <button type="button" data-src="/assets/img/fotografia-39.jpeg" data-caption="Puente sobre el río"><img src="/assets/img/fotografia-39.jpeg" alt="Puente sobre el río" loading="lazy"></button>
+        <button type="button" data-src="/assets/img/fotografia-40.jpeg" data-caption="Estero con piedras y vegetación"><img src="/assets/img/fotografia-40.jpeg" alt="Estero con piedras y vegetación" loading="lazy"></button>
+        <button type="button" data-src="/assets/img/fotografia-41.jpeg" data-caption="Vista del puente hacia el sector"><img src="/assets/img/fotografia-41.jpeg" alt="Vista del puente hacia el sector" loading="lazy"></button>
+      </div>
+    </div>
+
+    <div class="hr" style="margin-top: 24px;"></div>
 
     <section style="padding: 48px 0 40px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
       <div>
@@ -116,10 +227,82 @@ seoImage: https://nortespacios.cl/assets/nortespacios/living.jpeg
     </section>
 
     <footer style="padding: 32px 0 40px; font-size: 13px; line-height: 1.65; color: color-mix(in srgb, var(--color-text) 55%, transparent);">
-      Nortespacios.cl · Las Rojas, La Serena · WhatsApp +56 9 6802 3720
+      Nortespacios.cl · Las Rojas, Valle de Elqui · WhatsApp +56 9 6802 3720
     </footer>
   </div>
 </div>
+
+<div class="lightbox" data-lightbox aria-hidden="true">
+  <button type="button" class="lightbox-close" data-lightbox-close aria-label="Cerrar">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+  </button>
+  <button type="button" class="lightbox-prev" data-lightbox-prev aria-label="Foto anterior">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+  </button>
+  <button type="button" class="lightbox-next" data-lightbox-next aria-label="Foto siguiente">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+  </button>
+  <figure>
+    <img data-lightbox-img src="" alt="">
+    <figcaption data-lightbox-caption></figcaption>
+  </figure>
+</div>
+
+<script>
+(function () {
+  var buttons = Array.prototype.slice.call(document.querySelectorAll('.photo-grid button'));
+  var lightbox = document.querySelector('[data-lightbox]');
+  var img = lightbox.querySelector('[data-lightbox-img]');
+  var caption = lightbox.querySelector('[data-lightbox-caption]');
+  var current = 0;
+
+  function open(index) {
+    current = index;
+    var btn = buttons[current];
+    img.src = btn.getAttribute('data-src');
+    img.alt = btn.getAttribute('data-caption');
+    caption.textContent = btn.getAttribute('data-caption');
+    lightbox.classList.add('is-open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+  function close() {
+    lightbox.classList.remove('is-open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+  function step(delta) {
+    open((current + delta + buttons.length) % buttons.length);
+  }
+
+  buttons.forEach(function (btn, index) {
+    btn.addEventListener('click', function () { open(index); });
+  });
+  lightbox.querySelector('[data-lightbox-close]').addEventListener('click', close);
+  lightbox.querySelector('[data-lightbox-prev]').addEventListener('click', function () { step(-1); });
+  lightbox.querySelector('[data-lightbox-next]').addEventListener('click', function () { step(1); });
+  lightbox.addEventListener('click', function (e) { if (e.target === lightbox) close(); });
+  document.addEventListener('keydown', function (e) {
+    if (!lightbox.classList.contains('is-open')) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft') step(-1);
+    if (e.key === 'ArrowRight') step(1);
+  });
+
+  var pills = Array.prototype.slice.call(document.querySelectorAll('[data-cat-pill]'));
+  var sections = pills.map(function (pill) { return document.querySelector(pill.getAttribute('href')); });
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      var idx = sections.indexOf(entry.target);
+      if (idx === -1) return;
+      pills.forEach(function (p) { p.classList.remove('is-active'); });
+      pills[idx].classList.add('is-active');
+    });
+  }, { rootMargin: '-120px 0px -70% 0px' });
+  sections.forEach(function (s) { if (s) io.observe(s); });
+})();
+</script>
 
 </body>
 </html>
